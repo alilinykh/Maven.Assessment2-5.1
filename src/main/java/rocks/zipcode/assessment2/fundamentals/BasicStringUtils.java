@@ -7,7 +7,7 @@ public class BasicStringUtils {
      * @return concatenation of `string1` and `string2`
      */
     public static String concatentate(String string1, String string2) {
-        return null;
+        return string1 + string2;
     }
 
     /**
@@ -15,7 +15,8 @@ public class BasicStringUtils {
      * @return an identical string with characters in reverse order
      */
     public static String reverse(String string1) {
-        return null;
+        StringBuilder stringBuilder = new StringBuilder(string1);
+        return stringBuilder.reverse().toString();
     }
 
     /**
@@ -24,7 +25,9 @@ public class BasicStringUtils {
      * @return concatenation of the reverse of `string1` and reverse of `string2`
      */
     public static String reverseThenConcatenate(String string1, String string2) {
-        return null;
+        String s1 = BasicStringUtils.reverse(string1);
+        String s2 = BasicStringUtils.reverse(string2);
+        return BasicStringUtils.concatentate(s1,s2);
     }
 
     /**
@@ -33,7 +36,14 @@ public class BasicStringUtils {
      * @return `string` with `charactersToRemove` removed
      */
     public static String removeCharacters(String string, String charactersToRemove) {
-        return null;
+
+
+        char[] arr = charactersToRemove.toCharArray();
+        for (char c: arr
+             ) {
+            string = string.replace(c,' ');
+        }
+        return string.replaceAll("\\s","");
     }
 
     /**
@@ -42,6 +52,8 @@ public class BasicStringUtils {
      * @return reverse of `string` with `charactersToRemove` removed
      */
     public static String removeCharactersThenReverse(String string, String charactersToRemove) {
-        return null;
+        String result = BasicStringUtils.removeCharacters(string,charactersToRemove);
+        result = BasicStringUtils.reverse(result);
+        return result;
     }
 }
