@@ -79,8 +79,15 @@ public class Address {
         else return false;
     }
 
+
     @Override
     public String toString() {
-        return super.toString();
+        return "Address{" +
+                "addressLine1='" + addressLine1 + '\'' +
+                ", addressLine2='" + addressLine2 + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zipcode='" + zipcode + '\'' +
+                '}';
     }
 }

@@ -6,7 +6,7 @@ import java.util.*;
  * Use a map to keep track of inventory in a store
  */
 public class Inventory {
-   LinkedHashMap<String ,Integer> map = new LinkedHashMap<>();
+   LinkedHashMap<String ,Integer> map = new LinkedHashMap<>(12);
 
     /**
      * @param strings list of strings to add / remove / fetch from
