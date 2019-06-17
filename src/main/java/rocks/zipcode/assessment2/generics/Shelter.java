@@ -1,6 +1,7 @@
 package rocks.zipcode.assessment2.generics;
 
 
+import rocks.zipcode.assessment2.generics.ageable.Dog;
 import rocks.zipcode.assessment2.generics.ageable.Person;
 
 import java.util.ArrayList;
@@ -13,8 +14,7 @@ import java.util.ArrayList;
  * Shelter<Dog> dogHouse = new Shelter<Dog>();
  */
 public class Shelter<T> {
-    Shelter<Person> shelter;
-
+    private T t;
 
     public Shelter() {
 
@@ -24,29 +24,28 @@ public class Shelter<T> {
      * @return the number of item in the shelter
      */
     public int size() {
-        return shelter.size();
+
+        return 1;
     }
 
-    public void add(Object object) {
-        shelter.add(object);
+    public void add(Object object) { t = (T)object;
     }
 
     public Boolean contains(Object object) {
 
-        return shelter.contains(object);
+        return null;
     }
 
     public void remove(Object object) {
-        shelter.remove(object);
+
     }
 
     public Object get(Integer index) {
 
-        return shelter.get(index);
+        return t;
     }
 
     public Integer getIndexOf(Object ageable) {
-
-        return shelter.getIndexOf(ageable);
+        return null;
     }
 }

@@ -22,6 +22,8 @@ public class Person {
     public Person() {
         id = Long.MIN_VALUE;
         name = "";
+        address = new Address();
+                //new Address("","","","","");
 
     }
 
@@ -51,6 +53,15 @@ public class Person {
 
     @Override
     public boolean equals(Object o) {
-        return (Boolean)null;
+        Person converted  = (Person) o;
+        if (converted.address == null) {return false;}
+        if (o instanceof Person) {return false;}
+        if (this == o) {return true;}
+
+        if (this.id.equals(converted.id)) {return true;}
+        if (this.name.equals(converted.name)) {return true;}
+        if (this.address.equals(converted.address)) {return true;}
+
+        else return false;
     }
 }

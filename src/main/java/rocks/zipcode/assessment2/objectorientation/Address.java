@@ -75,7 +75,8 @@ public class Address {
 
     @Override
     public boolean equals(Object o) {
-        return (Boolean)null;
+        if (this == o) {return true;}
+        else return false;
     }
 
     @Override
