@@ -48,12 +48,12 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        String [] arr = string.split(" ");
-        for ( String s: arr
+        char [] arr = string.toCharArray();
+        for (char c: arr
              ) {
-            if (s.matches("[a-zA-Z ]?")) {return true;}
+            if(!Character.isAlphabetic(c) && !Character.isSpaceChar(c)) {return false;}
         }
-        return false;
+        return true;
 
     }
 
@@ -62,8 +62,14 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
+        char [] arr = string.toCharArray();
+        for (char c: arr
+             ) {
+            if (!Character.isDigit(c)) {return false;}
+        }
+        return true;
 
-        return string.matches("-?\\d+(\\.\\d+)?");
+//        return string.matches("-?\\d+(\\.\\d+)?");
     }
 
     /**
@@ -71,7 +77,13 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        if (string.matches("[a-zA-Z0-9! ]*")) {return false;}
-        else return true;
+        char [] arr = string.toCharArray();
+        for (char c: arr
+             ) {
+            if (Character.isSpaceChar(c) || Character.isDigit(c) || Character.isLetter(c)) {return false;}
+        }
+        return true;
+//        if (string.matches("[a-zA-Z0-9]+")) {return false;}
+//        else return true;
     }
 }

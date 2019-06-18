@@ -1,5 +1,7 @@
 package rocks.zipcode.assessment2.objectorientation;
 
+import java.util.Objects;
+
 /**
  * @author leon on 28/11/2018.
  * @ATTENTION_TO_STUDENTS - Ensure that you have completed the `Address` class before attempting this class
@@ -8,6 +10,7 @@ public class Person {
     Long id;
     String name;
     Address address;
+
     /**
      * @param id - id of person
      * @param name - name of person
@@ -23,8 +26,6 @@ public class Person {
         id = Long.MIN_VALUE;
         name = "";
         address = new Address();
-                //new Address("","","","","");
-
     }
 
     public Long getId() {
@@ -52,16 +53,26 @@ public class Person {
     }
 
     @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address=" + address +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
-        Person converted  = (Person) o;
-        if (converted.address == null) {return false;}
-        if (o instanceof Person) {return false;}
-        if (this == o) {return true;}
+        if (this == o) return true;
+        if (!(o instanceof Person)) return false;
+        Person person = (Person) o;
+        return Objects.equals(id, person.id) ||
+                Objects.equals(name, person.name) ||
+                Objects.equals(address, person.address);
+    }
 
-        if (this.id.equals(converted.id)) {return true;}
-        if (this.name.equals(converted.name)) {return true;}
-        if (this.address.equals(converted.address)) {return true;}
-
-        else return false;
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, address);
     }
 }

@@ -3,17 +3,20 @@ package rocks.zipcode.assessment2.objectorientation.animals;
 import rocks.zipcode.assessment2.objectorientation.Address;
 import rocks.zipcode.assessment2.objectorientation.Person;
 
+import java.security.acl.Owner;
+
 /**
  * @author leon on 29/11/2018.
  * @ATTENTION_TO_STUDENTS - Ensure that you have completed the `Person` class before attempting this class.
  */
-public class Animal {
+public class Animal{
     Long id;
     Person owner;
 
     public Animal() {
+        id = null;
+        owner = new Person();
     }
-
     /**
      * @param id - id of animal
      * @param owner - owner of animal

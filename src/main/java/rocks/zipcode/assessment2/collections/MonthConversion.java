@@ -22,22 +22,21 @@ public class MonthConversion {
      */
     public String getName(Integer monthNumber) {
 
-        if(map.containsKey(monthNumber)) {return map.get(monthNumber);}
-        else return null;
+        return map.get(monthNumber);
     }
 
     /**
      * @param monthName - name of month
      * @return - the ordinal of the month in the year
      */
-    public int getNumber(String monthName) {
+    public Integer getNumber(String monthName) {
         Integer key = 0;
         for (Map.Entry<Integer,String> entry : map.entrySet()) {
-            if (entry.getValue() == monthName) {
+            if (entry.getValue().equals(monthName)) {
                 key = entry.getKey();
             }
         }
-//        if (key == 0) { key = null; }
+        if (key == 0) { key = null; }
         return key;
     }
 
